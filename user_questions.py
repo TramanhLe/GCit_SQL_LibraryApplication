@@ -1,9 +1,8 @@
 import borrower_questions
 
 
-for name, val in foo.__dict__.iteritems():
-    if callable(val):                      
-        val() 
+for name, val in borrower_questions.__dict__.iteritems():
+    print(name)
 
 
 questions = {

@@ -8,7 +8,7 @@ def question_one(self):
     else:
         pass
 
-# 
+
 
 def question_two(self):
     if self.choice == "1":
