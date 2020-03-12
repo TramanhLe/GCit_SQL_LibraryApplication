@@ -10,9 +10,7 @@ def lib(self):
             out += output
         self.choice = input("Please Select Branch:\n" + out)
         if self.choice == f"{i}":
-            print("yay")
-        elif:
-            print("no")
+            print('yay')
         
 
 
