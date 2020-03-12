@@ -36,15 +36,21 @@ def fetchBranchIdByName(input):
         results=x.fetchone()
     return results
 
-
-
-# Not done
-def fetchBranchInfo():
-    #fetch branch info
-    myCursor.callproc('sp_showAllBranch')
+def fetchBooksByBranchId(input):
+    myCursor.callproc('sp_fetchBooksByBranch',[input])
     for x in myCursor.stored_results():
         results=x.fetchall()
     return results
 
+def fetchBookIdByBookName(input):
+    myCursor.callproc('sp_fetchBookIdByBookName',[input])
+    for x in myCursor.stored_results():
+        results=x.fetchone()
+    return results
 
+def fetchCopiesByIds(branchId,bookId):
+    myCursor.callproc('sp_fetchCopiesByIds',[input])
+    for x in myCursor.stored_results():
+        results=x.fetchone()
+    return results
 
