@@ -30,6 +30,12 @@ def fetchBorrowerBooks(input):
         results=x.fetchall()
     return results
 
+def fetchBranchIdByName(input):
+    myCursor.callproc('sp_fetchBranchIdByName',[input])
+    for x in myCursor.stored.results():
+        results=x.fetchone()
+    return results
+
 
 
 # Not done
