@@ -1,3 +1,5 @@
+import questions
+
 # DONT WORRY ABOUT THIS FOR NOW, I AM WORKING ON IT AND SHOULD HAVE KEPT IT IN ITS OWN BRANCH -HOFF
 
 # Create a library management application on the Command Line which will follow the following protocol.
@@ -51,6 +53,11 @@
 
 
 
+# questions.questions["borrower"][2]("cat")
+
+
+
+# print(questions.questions["borrower"][2])
 
 
 
@@ -64,21 +71,13 @@
 
 
 
+# Some awesome and cool changes here
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-class Borrower:
+class User:
     def __init__(self):
         self.id = ''
         self.track = 0
@@ -87,7 +86,8 @@ class Borrower:
 
 
     def next(self):
-        self.track + 1
+        print("Hello")
+        self.track += 1
 
     def prev(self):
         self.prev -  1
@@ -98,13 +98,15 @@ class Borrower:
         self.engine()
 
     def engine(self):
-        while self.track < 2:
-            self.track_list[self.track]
+        while self.track < 3:
+            self.track_list[self.track](self)
         print("Go to main")    
 
 
 
-
+test_case = User()
+test_case.track_list = questions.questions["borrower"]
+test_case()
 
 
 # def main():

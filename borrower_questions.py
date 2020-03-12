@@ -1,3 +1,6 @@
+
+
+
 def question_one(self):
     self.id = input("Enter your card number.\n")
     # Valid card number check here boolean
@@ -25,3 +28,8 @@ def question_two(self):
         # Get books this borrower has checked out
         books = ["Romeo","Juliet","Ron Howard"]
         self.next()
+
+
+def question_three(self):
+    print("Hello from question 3")
+    self.next()
