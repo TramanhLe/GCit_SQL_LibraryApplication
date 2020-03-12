@@ -82,15 +82,15 @@ class User:
         self.id = ''
         self.track = 0
         self.track_list = []
+        self.track_list_glossary = []
         self.choice = ''
 
 
     def next(self):
-        print("Hello")
         self.track += 1
 
     def prev(self):
-        self.prev -  1
+        self.prev -=  1
     def home(self):
         self.track = 0
     
