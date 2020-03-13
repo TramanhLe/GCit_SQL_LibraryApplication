@@ -22,4 +22,11 @@ def question_three(self):
     print("Hello from question 3")
     self.next()
 
+def question_four(self):
+    print("Hello from question 4")
+    self.next()
+    
+
+def return_to_initial_question(self):    
+    self.home()
 

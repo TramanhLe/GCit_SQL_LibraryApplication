@@ -5,7 +5,6 @@ def borrower_question_one(self):
     self.id = input("Enter your card number.\n")
     # Valid card number check here boolean
     result=fetchProcedures.validateCardNo(self.id)
-    print(result)
     card = None
     if result is None:
         print("Not a valid ID")
