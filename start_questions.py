@@ -17,4 +17,6 @@ def borrower_question_one(self):
     else:
         pass
 
+def lib_question_start(self):
+    self.choice = input("1)Enter Branch you manage\n 2)Quit to previous\n" )
     
