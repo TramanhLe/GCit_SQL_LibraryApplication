@@ -1,7 +1,3 @@
-import questions
-
-# DONT WORRY ABOUT THIS FOR NOW, I AM WORKING ON IT AND SHOULD HAVE KEPT IT IN ITS OWN BRANCH -HOFF
-
 # Create a library management application on the Command Line which will follow the following protocol.
 
 # User is first presented the following options:
@@ -53,11 +49,6 @@ import questions
 
 
 
-# questions.questions["borrower"][2]("cat")
-
-
-
-# print(questions.questions["borrower"][2])
 
 
 
@@ -71,7 +62,9 @@ import questions
 
 
 
-# Some awesome and cool changes here
+
+
+
 
 
 
@@ -111,6 +104,37 @@ class User:
             self.track_list[self.track](self)
         print("Go to main")    
 
+    # def question_one(self):
+    #     self.id = input("Enter your card number.\n")
+    #     # Valid card number check here
+    #     card = True
+    #     if card == True:
+    #         self.choice = input("1) Check out a book\n 2) Return a book\n")
+    #         self.next()
+    #     else:
+    #         pass
+    
+    # def question_two(self):
+    #     if self.choice == "1":
+    #         # Get branches here
+    #         branches = ["New York", "New Mexico", "New Hampshire", "New Zealand"]
+    #         for i, count in enumerate(branches):
+    #             print(count)
+    #         branch = input(""" Which branch do you want 
+    #                           to check out from?\n 1) {branches[0]}\n
+    #                            2) {branches[1]}\n
+    #                             3) {branches[2]}""")
+    #         self.next()
+    #     elif self.choice == "2": 
+    #         # Get books this borrower has checked out
+    #         books = ["Romeo","Juliet","Ron Howard"]
+    #         self.next()
+
+
+
+user = Borrower()
+user()
+
 
 
 
@@ -131,8 +155,28 @@ test_case()
 #     if role == "2":
 #         borrower_path()
 
+# def librarian_path(): 
+#     choice = input("1)Enter Branch you manage\n 2) Quite to previous \n ")
+#     if choice == "1":
+#         branch = ("1)University Library, Boston \n 2)State Library, New York\n 3)Federal Library, Washington DC\n 4)County Library, McLean VA \n 5)Quit to previous")
+#     else:
+#         print("Go back to menu")
 
+# # "1)University Library, Boston \n 2)State Library, New York\n 3)Federal Library, Washington DC\n 4)County Library, McLean VA \n 5)Quit to previous"
+# def borrower_path():
+#     cardNo = input("Enter your card number.\n")
+#     # Valid card number check here
+#     card = True
+#     if card == True:
+#         choice = input("1)Check out a book\n 2) Return a book\n")
+#         borrower_path_2(carNo, choice)
 
+# def borrower_path_2(cardNo, choice):
+#     if choice == "1":
+#         branch = input("Which branch do you want to check out from?")
+#     elif choice = "2": 
+#         # Get books this borrower has checked out
+#         books = ["Romeo","Juliet","Ron Howard"]
 
 
 
