@@ -80,6 +80,7 @@ class User:
         self.track_list_glossary = user_specific_path
         self.initial_question = first_path_question
         self.choice = ''
+        self.error = ''
 
 
     def next(self):
@@ -92,7 +93,10 @@ class User:
 
     def track_switch(self):
         self.initial_question(self)
-        self.track_list = self.track_list_glossary[int(self.choice)]
+        if len(self.error) > 0:
+            pass
+        else:
+            self.track_list = self.track_list_glossary[int(self.choice)]
 
     def __call__(self):
         self.engine()
@@ -101,7 +105,8 @@ class User:
         self.track_switch()
         
         
-        while self.track <= len(self.track_list):
+        while self.track <= len(self.track_list) - 1:
+            self.error = ''
             self.track_list[self.track](self)
         print("Go to main")    
 
