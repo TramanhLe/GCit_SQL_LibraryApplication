@@ -98,7 +98,7 @@ class User:
 
     def track_switch(self):
         self.initial_question(self)
-        self.track_list = self.track_list_glossary[int(self.choice) - 1]
+        self.track_list = self.track_list_glossary[int(self.choice)]
 
     def __call__(self):
         self.engine()
@@ -106,8 +106,8 @@ class User:
     def engine(self):
         self.track_switch()
         
-        pass
-        if self.track < 3:
+        
+        while self.track <= len(self.track_list):
             self.track_list[self.track](self)
         print("Go to main")    
 
@@ -118,6 +118,7 @@ class User:
 
 
 dummy_input = "borrower"
+
 test_case = User(dummy_input, questions.question_bank["start"][dummy_input], questions.question_bank[dummy_input])
 test_case()
 
