@@ -6,8 +6,8 @@ import start_questions
 # Each int : array within the values of borrower, librarian, and admin
 question_bank = {
     "start": {
-        "borrower": start_questions.borrower_question_one,
-        "librarian": start_questions.lib_question_one,
+        "borrower": start_questions.borrower_question_start,
+        "librarian": start_questions.lib_question_start,
     },
     "borrower": {
         # check_out

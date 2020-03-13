@@ -1,7 +1,7 @@
 import fetchProcedures
 
 
-def borrower_question_one(self):
+def borrower_question_start(self):
     self.id = input("Enter your card number.\n")
     # Valid card number check here boolean
     result=fetchProcedures.validateCardNo(self.id)
@@ -19,3 +19,5 @@ def borrower_question_one(self):
 def lib_question_start(self):
     self.choice = input("1)Enter Branch you manage\n 2)Quit to previous\n" )
     
+
+
