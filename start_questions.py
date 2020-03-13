@@ -17,4 +17,9 @@ def borrower_question_one(self):
     else:
         pass
 
+def admin_question_one(self):
+    self.choice = input("1) Add/Update/Delete Book and Author\n2) Add/Update/Delete Publishers\n3) Add/Update/Delete Library Branches\n4) Add/Update/Delete Borrowers\n5) Over-ride Due Date for a Book Loan\n6)Exit \n")
+    
+
+    
     

@@ -142,7 +142,7 @@ class User:
 
 
 
-dummy_input = "borrower"
+dummy_input = "admin"
 
 test_case = User(dummy_input, questions.question_bank["start"][dummy_input], questions.question_bank[dummy_input])
 test_case()
