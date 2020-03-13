@@ -1,5 +1,4 @@
 -- Adam Kiertscher
-
 CREATE PROCEDURE `L_updateNoOfCopies`(IN oldBranchId int,
 										IN oldBookId int,
 										IN newNoOfCopies int)

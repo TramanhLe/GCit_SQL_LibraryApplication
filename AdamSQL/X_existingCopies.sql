@@ -1,5 +1,4 @@
 -- Adam Kiertscher
-
 CREATE PROCEDURE `X_existingCopies` (IN branchIdInput int, IN bookIdInput int)
 BEGIN
 	SELECT bc.noOfCopies
