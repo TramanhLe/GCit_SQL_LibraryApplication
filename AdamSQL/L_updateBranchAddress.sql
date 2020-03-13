@@ -1,7 +1,7 @@
 -- Adam Kiertscher
-CREATE PROCEDURE `L_updateBranchAddress` (IN branchIdInput int, IN newBranchAddress varchar(50))
+CREATE PROCEDURE `L_updateBranchAddress` (IN inputBranchId int, IN newBranchAddress varchar(50))
 BEGIN
 	UPDATE tbl_library_branch
     SET branchAddress=newBranchAddress
-    WHERE branchId=branchIdInput;
+    WHERE branchId=inputBranchId;
 END

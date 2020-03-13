@@ -1,7 +1,7 @@
 -- Adam Kiertscher
-CREATE PROCEDURE `X_cardNoToName` (IN cardNoInput int)
+CREATE PROCEDURE `X_cardNoToName` (IN inputCardNo int)
 BEGIN
 	SELECT b.name
 	FROM borrower b
-    WHERE cardNo=cardNoInput;
+    WHERE cardNo=inputCardNo;
 END
