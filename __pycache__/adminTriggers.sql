@@ -1,13 +1,21 @@
 CREATE TRIGGER addBook
 		BEFORE INSERT ON tbl_book FOR EACH ROW
+<<<<<<< Updated upstream
 	INSERT INTO tbl_book
+=======
+	INSERT INTO tbl_book -- perhaps I should make a pseudo table?
+>>>>>>> Stashed changes
 	SET action = 'add',
 		bookId = NEW.bookId,
 		title = NEW.title,
 		pubId = NEW.pubId;
         
 CREATE TRIGGER updateBook
+<<<<<<< Updated upstream
 		BEFORE INSERT ON tbl_book FOR EACH ROW
+=======
+		BEFORE UPDATE ON tbl_book FOR EACH ROW
+>>>>>>> Stashed changes
 	INSERT INTO tbl_book
 	SET action = 'update',
 		bookId = OLD.bookId,
@@ -22,7 +30,11 @@ CREATE TRIGGER addAuthor
 		authorName = NEW.authorName;
         
 CREATE TRIGGER updateAuthor
+<<<<<<< Updated upstream
 		AFTER INSERT ON tbl_author FOR EACH ROW
+=======
+		AFTER UPDATE ON tbl_author FOR EACH ROW
+>>>>>>> Stashed changes
 	INSERT INTO tbl_author
 	SET action = 'update',
 		authorId = OLD.authorId,
