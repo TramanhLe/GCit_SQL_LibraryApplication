@@ -81,6 +81,7 @@ class User:
         self.initial_question = first_path_question
         self.choice = ''
         self.error = ''
+        self.complete = False
 
 
     def next(self):
@@ -88,8 +89,13 @@ class User:
 
     def prev(self):
         self.prev -=  1
+        
     def home(self):
+        self.track_list = []
         self.track = 0
+
+    def finish(self):
+        self.complete = True
 
     def track_switch(self):
         self.initial_question(self)
@@ -108,7 +114,9 @@ class User:
         while self.track <= len(self.track_list) - 1:
             self.error = ''
             self.track_list[self.track](self)
-        print("Go to main")    
+        if self.complete == False and len(self.track_list) == 0:
+            self.engine()
+         
 
     # def question_one(self):
     #     self.id = input("Enter your card number.\n")
