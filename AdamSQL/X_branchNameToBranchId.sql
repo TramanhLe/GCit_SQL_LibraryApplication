@@ -1,3 +1,4 @@
+-- Adam Kiertscher
 CREATE PROCEDURE `X_branchNameToBranchId`(IN branchInput varchar(50))
 BEGIN
 	SELECT branchId
