@@ -1,3 +1,4 @@
+import questions
 # Create a library management application on the Command Line which will follow the following protocol.
 
 # User is first presented the following options:
@@ -129,11 +130,6 @@ class User:
     #         # Get books this borrower has checked out
     #         books = ["Romeo","Juliet","Ron Howard"]
     #         self.next()
-
-
-
-user = Borrower()
-user()
 
 
 
