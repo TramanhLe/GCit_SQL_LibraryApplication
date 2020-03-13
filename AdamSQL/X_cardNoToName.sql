@@ -1,3 +1,5 @@
+-- Adam Kiertscher
+
 CREATE PROCEDURE `X_cardNoToName` (IN cardNoInput int)
 BEGIN
 	SELECT b.name
