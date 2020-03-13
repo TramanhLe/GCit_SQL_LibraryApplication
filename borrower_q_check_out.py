@@ -1,17 +1,6 @@
 import string_utils
 
 
-def question_one(self):
-    self.id = input("Enter your card number.\n")
-    # Valid card number check here boolean
-    card = True
-    if card == True:
-        self.choice = input("1) Check out a book\n2) Return a book\n")
-        self.next()
-    else:
-        pass
-
-
 
 def question_two(self):
     if self.choice == "1":

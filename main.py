@@ -78,11 +78,13 @@ import questions
 
 
 class User:
-    def __init__(self):
+    def __init__(self, user_role, first_path_question, user_specific_path):
+        self.role = user_role
         self.id = ''
         self.track = 0
         self.track_list = []
-        self.track_list_glossary = []
+        self.track_list_glossary = user_specific_path
+        self.initial_question = first_path_question
         self.choice = ''
 
 
@@ -93,19 +95,30 @@ class User:
         self.prev -=  1
     def home(self):
         self.track = 0
-    
+
+    def track_switch(self):
+        self.initial_question(self)
+        self.track_list = self.track_list_glossary[int(self.choice) - 1]
+
     def __call__(self):
         self.engine()
 
     def engine(self):
-        while self.track < 3:
+        self.track_switch()
+        
+        pass
+        if self.track < 3:
             self.track_list[self.track](self)
         print("Go to main")    
 
 
 
-test_case = User()
-test_case.track_list = questions.questions["borrower"]
+
+
+
+
+dummy_input = "borrower"
+test_case = User(dummy_input, questions.question_bank["start"][dummy_input], questions.question_bank[dummy_input])
 test_case()
 
 
