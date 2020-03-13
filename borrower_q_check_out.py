@@ -19,11 +19,9 @@ def question_two(self):
 
 
 def question_three(self):
-    print("Hello from question 3")
-    self.next()
-
-def question_four(self):
-    print("Hello from question 4")
+    books = ["book1","book2", "book3"]
+    books = string_utils.build_input_options(books)
+    input("Which book would you like to check out?\n" + books)
     self.next()
     
 

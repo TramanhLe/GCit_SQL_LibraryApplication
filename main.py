@@ -82,6 +82,7 @@ class User:
         self.choice = ''
         self.error = ''
         self.complete = False
+        self.user_info = {}
 
 
     def next(self):
@@ -89,7 +90,7 @@ class User:
 
     def prev(self):
         self.prev -=  1
-        
+
     def home(self):
         self.track_list = []
         self.track = 0
