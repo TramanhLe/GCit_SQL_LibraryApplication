@@ -1,3 +1,4 @@
+import questions
 # Create a library management application on the Command Line which will follow the following protocol.
 
 # User is first presented the following options:
@@ -70,34 +71,38 @@
 
 
 
-
-
-
-
-
-
-class Borrower:
-    def __init__(self):
+class User:
+    def __init__(self, user_role, first_path_question, user_specific_path):
+        self.role = user_role
         self.id = ''
         self.track = 0
         self.track_list = []
+        self.track_list_glossary = user_specific_path
+        self.initial_question = first_path_question
         self.choice = ''
 
 
     def next(self):
-        self.track + 1
+        self.track += 1
 
     def prev(self):
-        self.prev -  1
+        self.prev -=  1
     def home(self):
         self.track = 0
-    
+
+    def track_switch(self):
+        self.initial_question(self)
+        self.track_list = self.track_list_glossary[int(self.choice)]
+
     def __call__(self):
         self.engine()
 
     def engine(self):
-        while self.track < 2:
-            self.track_list[self.track]
+        self.track_switch()
+        
+        
+        while self.track <= len(self.track_list):
+            self.track_list[self.track](self)
         print("Go to main")    
 
     # def question_one(self):
@@ -128,11 +133,14 @@ class Borrower:
 
 
 
-user = Borrower()
-user()
 
 
 
+
+dummy_input = "borrower"
+
+test_case = User(dummy_input, questions.question_bank["start"][dummy_input], questions.question_bank[dummy_input])
+test_case()
 
 
 # def main():
