@@ -2,7 +2,7 @@
 CREATE PROCEDURE `A_updateBorrower`(IN inputCardNo int,
 									IN newName varchar(50),
 									IN newAddress varchar(50),
-                                    IN newPhone int)
+                                    IN newPhone varchar(50))
 BEGIN
 	UPDATE tbl_borrower b
     SET b.name = newName
