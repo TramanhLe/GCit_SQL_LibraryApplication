@@ -72,7 +72,7 @@ while True:
                 if newPubName=='quit':
                     break
                 newPubAddress=input("Enter the new address for "+newPubName+":\n")
-                if newPubAddress=='quit'
+                if newPubAddress=='quit':
                     break
                 #insert update publisher procedure here
                 print("Updating publisher")
@@ -127,7 +127,7 @@ while True:
                 branchChoiceName=(''.join(branchList[int(branchChoice)-1]))
                 branchId=fetchProcedures.fetchBranchIdByName(branchChoiceName)
                 #Delete branch procedure insert here
-             print("Deleting Library Branch")
+                print("Deleting Library Branch")
                 
             else:
                 print("Invalid input type 'quit' to go back")
