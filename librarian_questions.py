@@ -1,4 +1,5 @@
 import fetchProcedures
+import updateProcedures
 import start_questions
 import questions
 
@@ -21,4 +22,8 @@ def lib_question_two(self):
     if self.choice == "1":
         print(f'You have chosen to update the Branch with Branch Id: {self.id} and Branch Name: {str_branch}.')
         new_branch_name = input(f"Please Enter New Branch Name for {str_branch}\n:")
-        
+        if new_branch_name != ""
+        updateProcedures.updateBranchName(f"{self.id[0]}",f"{str_branch}",f"{new_branch_name}")
+        print(f"{self.id[0]}", f"{str_branch}", f"{new_branch_name}")
+        elif
+    elif self.choice == "2":
