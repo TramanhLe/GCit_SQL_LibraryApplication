@@ -21,6 +21,11 @@ def updatedBookCopies(branchId,bookId,numCopies):
     print("Book copies has been updated")
 
 
+def updateBranchName(branchId, curBranch, newBranch):
+    myCursor.callproc('sp_updateBranchName', [branchId, curBranch, newBranch])
+    print("Branch Name has been changed")
+
+
 
 
 
