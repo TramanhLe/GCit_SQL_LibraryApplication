@@ -24,7 +24,10 @@ def updateBranchName(branchId, curBranch, newBranch):
     myCursor.callproc('sp_updateBranchName', [branchId, curBranch, newBranch])
     print("Branch Name has been changed")
 
-
+def updateBranchAddress(branchId, newBranchAddress):
+    myCursor.callproc("sp_updateBranchAddress",[branchId, newBranchAddress])
+    mydb.commit()
+    print(f"Branch Address has been changed to {newBranchAddress}")
 
 
 
