@@ -1,11 +1,12 @@
 import string_utils
 import updateProcedures
 import fetchProcedures
-import sys
-sys.dont_write_bytecode = True
-
+import deleteProcedures
 
 while True:
+    updateProcedures.mydb.commit()
+    fetchProcedures.mydb.commit()
+    deleteProcedures.mydb.commit()
     ans=input("1) Add/Update/Delete Book and Author\n2) Add/Update/Delete Publishers\n3) Add/Update/Delete Library Branches\n4) Add/Update/Delete Borrowers\n5) Over-ride Due Date for a Book loan\n")
     if ans=="quit":
         print("end")
@@ -24,10 +25,13 @@ while True:
                         break
                     elif int(ans)==1:
                         print("Adding book")
+                        break
                     elif int(ans)==2:
                         print ("Updating book")
+                        break
                     elif int(ans)==3:
                         print ("Deleting book")
+                        break
                     else:
                         print("Invalid input type 'quit' to go back")
             elif int(ans)==2:
@@ -37,10 +41,13 @@ while True:
                         break
                     elif int(ans)==1:
                         print("Adding Author")
+                        break
                     elif int(ans)==2:
                         print("Updating Author")
+                        break
                     elif int(ans)==3:
                         print("Deleting Author")
+                        break
                     else:
                         print("Invalid Input type 'quit' to go back")
             else:
@@ -76,6 +83,7 @@ while True:
                     break
                 #insert update publisher procedure here
                 print("Updating publisher")
+                break
             elif int(ans)==3:
                 #insert fetch publisher procedure here
                 pubChoice=input("Which publisher do you want to delete?\n")
@@ -84,6 +92,7 @@ while True:
                 #insert fetch publisher id by name here
                 #insert delete publisher procedure here
                 print("Delete Publisher")
+                break
             else:
                 print("Invalid input type 'quit' to go back")
     #library branch
@@ -101,6 +110,7 @@ while True:
                     break
                 #Enter adding library branch proceudre here
                 print("Adding Library Branch")
+                break
             elif int(ans)==2:
                 branchList=fetchProcedures.fetchBranchs()
                 branches = string_utils.build_input_options(branchList)
@@ -118,6 +128,8 @@ while True:
                         break
                     else:
                         updateProcedures.updateBranchInfo(newBranchName,newBranchAddress,branchId[0])
+                        print("library branch updated")
+                        break
             elif int(ans)==3:
                 branchList=fetchProcedures.fetchBranchs()
                 branches = string_utils.build_input_options(branchList)
@@ -126,8 +138,9 @@ while True:
                     break
                 branchChoiceName=(''.join(branchList[int(branchChoice)-1]))
                 branchId=fetchProcedures.fetchBranchIdByName(branchChoiceName)
-                #Delete branch procedure insert here
+                deleteProcedures.deleteBranch(branchId[0])
                 print("Deleting Library Branch")
+                break
                 
             else:
                 print("Invalid input type 'quit' to go back")
@@ -139,15 +152,35 @@ while True:
                 break
             elif int(ans)==1:
                 print("Adding Borrower")
+                break
             elif int(ans)==2:
                 print("Updating Borrower")
+                break
             elif int(ans)==3:
+                borrowerList=fetchProcedures.fetchBorrowers()
+                borrowers = string_utils.build_input_options(borrowerList)
+                borrowerChoice=input(borrowers+" Enter borrower card # you want to delete?\n")
+                deleteProcedures.deleteBorrower(borrowerChoice)
                 print("Deleting Borrower")
+                break
             else:
                 print("Invalid input type 'quit' to go back")
     #override due date for a boook
     elif int(ans)==5:
         while True:
+            cardNum=input("Enter the borrower Card Number you want to update the due date for?\n")
+            if cardNum=='quit':
+                break
+            else:
+                #Insert fetching all borrowed book from the card number
+                bookChoice=input("Which book do you want to update the due date for?\n")
+                #choices 
+                dueMonth=input("Enter the new due date month.\n")
+                dueDay=input("Enter the new day for due date.\n")
+                dueYear=input("Enter the new year for the due date.\n")
+                
+                #insert update due date procedure here.
+                break
             print("Updating due date")
             break
     else:
