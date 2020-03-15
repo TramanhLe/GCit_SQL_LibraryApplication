@@ -3,7 +3,7 @@ import mysql.connector
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="8525",
+    password="Rootadmin123",
     auth_plugin='mysql_native_password',
     database="library")
 myCursor = mydb.cursor()
@@ -32,7 +32,7 @@ def fetchBorrowerBooks(input):
 
 def fetchBranchIdByName(input):
     myCursor.callproc('sp_fetchBranchIdByName',[input])
-    for x in myCursor.stored.results():
+    for x in myCursor.stored_results():
         results=x.fetchone()
     return results
 

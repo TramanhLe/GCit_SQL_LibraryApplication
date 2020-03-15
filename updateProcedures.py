@@ -3,17 +3,18 @@ import mysql.connector
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="8525",
+    password="Rootadmin123",
     auth_plugin='mysql_native_password',
-    database="library")
+    database="library",
+    autocommit=True)
 myCursor = mydb.cursor()
 
 results=[]
 
 #Done
 def updateBranchInfo(bName,bAdd,bId):
-    myCursor.callproc('sp_updateLibraryBranch',[bName,bAdd,bId])
-    print("Library branch has been updated")
+        myCursor.callproc('sp_updateLibraryBranch',[bName,bAdd,bId])
+        print("Library branch has been updated")
 
 def updatedBookCopies(branchId,bookId,numCopies):
     myCursor.callproc('sp_updateBookCopies',[numCopies,branchId,bookId])

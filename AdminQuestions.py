@@ -1,6 +1,8 @@
 import string_utils
 import updateProcedures
 import fetchProcedures
+import sys
+sys.dont_write_bytecode = True
 
 
 while True:
@@ -50,25 +52,83 @@ while True:
             if ans=="quit":
                 break
             elif int(ans)==1:
+                pubName=input("Enter the new publishers name?\n")
+                if pubName=='quit':
+                    break
+                pubAddress=input("Enter the new publisher: "+pubName+" address\n")
+                if pubAddress=='quit':
+                    break
+                pubPhoneNumber=input("Enter "+pubName+"'s phone number")
+                if pubPhoneNumber=='quit':
+                    break
+                # Insert adding publisher procedure here
                 print("Adding publisher")
             elif int(ans)==2:
+                #Insert fetch publisher procedure here
+                pubChoice=input("Which publisher do you want to update? \n")
+                if pubChoice=='quit':
+                    break
+                newPubName=input("Enter new publisher name\n")
+                if newPubName=='quit':
+                    break
+                newPubAddress=input("Enter the new address for "+newPubName+":\n")
+                if newPubAddress=='quit':
+                    break
+                #insert update publisher procedure here
                 print("Updating publisher")
             elif int(ans)==3:
+                #insert fetch publisher procedure here
+                pubChoice=input("Which publisher do you want to delete?\n")
+                if pubChoice=='quit':
+                    break
+                #insert fetch publisher id by name here
+                #insert delete publisher procedure here
                 print("Delete Publisher")
             else:
                 print("Invalid input type 'quit' to go back")
     #library branch
     elif int(ans)==3:
         while True:
-            ans=input("1) Add Library Branch\n2) Update Library Branch\n3) Delete Library Branch")
+            ans=input("1) Add Library Branch\n2) Update Library Branch\n3) Delete Library Branch\n")
             if ans=="quit":
                 break
             elif int(ans)==1:
+                newBranchName=input("What do you want to call this new branch?\n")
+                if newBranchName=='quit':
+                    break
+                newBranchAddress=input("What is the address for the new branch "+newBranchName+"?\n")
+                if newBranchAddress=='quit':
+                    break
+                #Enter adding library branch proceudre here
                 print("Adding Library Branch")
             elif int(ans)==2:
-                print("Updating Library Branch")
+                branchList=fetchProcedures.fetchBranchs()
+                branches = string_utils.build_input_options(branchList)
+                branchChoice = input(branches + "Which branch do you want to update?\n")
+                if branchChoice=='quit':
+                    break
+                branchChoiceName=(''.join(branchList[int(branchChoice)-1]))
+                branchId=fetchProcedures.fetchBranchIdByName(branchChoiceName)
+                newBranchName = input("What is the new branch name?\n")
+                if newBranchName=='quit':
+                    break
+                else:
+                    newBranchAddress = input("What is the new address for "+newBranchName +"?\n")
+                    if newBranchAddress=='quit':
+                        break
+                    else:
+                        updateProcedures.updateBranchInfo(newBranchName,newBranchAddress,branchId[0])
             elif int(ans)==3:
+                branchList=fetchProcedures.fetchBranchs()
+                branches = string_utils.build_input_options(branchList)
+                branchChoice = input(branches + "Which branch do you want to delete?\n")
+                if branchChoice=='quit':
+                    break
+                branchChoiceName=(''.join(branchList[int(branchChoice)-1]))
+                branchId=fetchProcedures.fetchBranchIdByName(branchChoiceName)
+                #Delete branch procedure insert here
                 print("Deleting Library Branch")
+                
             else:
                 print("Invalid input type 'quit' to go back")
     #borrowers
