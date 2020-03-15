@@ -19,9 +19,10 @@ def question_two(self):
 
 
 def question_three(self):
-    books = ["book1","book2", "book3"]
+    # books = fetchProcedures.fet()
     books = string_utils.build_input_options(books)
     input("Which book would you like to check out?\n" + books)
+    print("checked out book")
     self.next()
     
 
