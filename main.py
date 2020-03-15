@@ -56,7 +56,7 @@ class User:
         self.track += 1
 
     def prev(self):
-        self.prev -=  1
+        self.track -=  1
 
     def home(self):
         self.track_list = []
