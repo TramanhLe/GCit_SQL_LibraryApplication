@@ -3,7 +3,7 @@ import mysql.connector
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="8525",
+    password="Rootadmin123",
     auth_plugin='mysql_native_password',
     database="library",
     autocommit=True)
@@ -35,6 +35,16 @@ def updateBookCopiesById(branchId, bookId, newCopies):
     mydb.commit()
     print(f"you added {newCopies} new copies")
 
+def updateBorrowerInfo(cardNum,newName,newAddress,newPhone):
+    myCursor.callproc('A_updateBorrower',[cardNum,newName,newAddress,newPhone])
 
+def updatePublisherInfo(pubId,pubName,pubAddress,pubPhone):
+    myCursor.callproc('A_updatePublisher',[pubId,pubName,pubAddress,pubPhone])
+
+def updateBookInfo(bookId,title,pubId):
+    myCursor.callproc('A_updateBook',[bookId,title,pubId])
+
+def updateAuthorInfo(authorId,newName):
+    myCursor.callproc('A_updateAuthor',[authorId,newName])
 
 #Not done
