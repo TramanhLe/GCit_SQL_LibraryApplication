@@ -2,9 +2,9 @@ import fetchProcedures
 
 
 def borrower_question_start(self):
-    self.id = input("Enter your card number.\n")
+    self.store["cardNo"] = input("Enter your card number.\n")
     # Valid card number check here boolean
-    result=fetchProcedures.validateCardNo(self.id)
+    result=fetchProcedures.validateCardNo(self.store["cardNo"])
     card = None
     if result is None:
         print("Not a valid ID")

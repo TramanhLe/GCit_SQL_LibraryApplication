@@ -3,11 +3,15 @@ import admin_q_book_author
 class Admin:
     def __init__(self):
         self.choice = ''
+        self.choices_id_matrix = {}
         self.error_message = ''
         self.error = False
         self.complete = False
-        self.update_data = {}
+        self.store = {}
 
+    def grabId(self):
+        return self.choices_id_matrix[self.choice]
+        
     def __call__(self):
         self.complete = False
         print("What would you like to do?\n")
