@@ -54,6 +54,17 @@ def fetchCopiesByIds(branchId,bookId):
         results=x.fetchone()
     return results
 
+def fetchBookIdByBkName(branchId, book):
+    myCursor.callproc('sp_fetchBookIdByBkName',[branchId, book])
+    for x in myCursor.stored_results():
+        results=x.fetchone()
+    return results
+
+def fetchBookCopiesByBookId(branchId,bookId):
+    myCursor.callproc('sp_fetchBookCopiesByBookId',[branchId, bookId])
+    for x in myCursor.stored_results():
+        results=x.fetchone()
+    return results
 
 def fetchBooksByBorrowerId(borrowerId):
     myCursor.callproc('getBorrowedBooks', [borrowerId])
