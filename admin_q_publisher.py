@@ -11,6 +11,9 @@ def start(self):
         print("Update an existing Publisher")
     elif self.choice == "3":
         print("Delete an existing Publisher")
+    else:
+        print("Must enter a valid option (ie 1, 2, 3)")
+        start(self)
 
 
 def add_publisher(self):
@@ -22,10 +25,9 @@ def add_publisher(self):
     self.choice = input("Does that look right to you?\n1)Yes\n2)No")
     if self.choice == "1":
         print("Added new publisher")
-        self.complete = True
     elif self.choice == "2":
         add_publisher()
-    pass
+    
 
 def update_publisher(self):
     publishers = fetchProcedures.fetchBorrowers()
@@ -36,10 +38,13 @@ def update_publisher(self):
     self.store["address"] = input("What is the address of this publisher?")
     self.store["phone"] = input("What is the phone number of this publisher?")
 
+    print("Updated publisher")
     # UPDATE PUBLISHER (name, address, phone)
 
 def delete_publisher(self):
     publishers = fetchProcedures.fetchBorrowers()
     publishers = string_utils.build_input_options(self, publishers)
-    self.choice = input("Which publisher would you like to update?\n")
+    self.choice = input("Which publisher would you like to delete?\n")
+    
+    print("Deleted publisher")
     # DELETE PUBLISHER BY ID HERE
