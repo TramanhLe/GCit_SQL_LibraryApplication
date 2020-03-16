@@ -1,4 +1,5 @@
 import fetchProcedures
+import updateProcedures
 import start_questions
 import questions
 
@@ -9,7 +10,7 @@ def lib_question_one(self):
         for i, val in enumerate(res):
             output = f"{i}) {val}\n"
             out += output
-        self.choice = input("Please Select Branch number or q to quit to previous:\n" + out)
+        self.choice = input("Select Branch Number or q to quit to previous:\n" + out)
         self.next()
 
 def lib_question_two(self):
@@ -21,4 +22,7 @@ def lib_question_two(self):
     if self.choice == "1":
         print(f'You have chosen to update the Branch with Branch Id: {self.id} and Branch Name: {str_branch}.')
         new_branch_name = input(f"Please Enter New Branch Name for {str_branch}\n:")
-        
+        if len(new_branch_name) > 0:
+            updateProcedures.updateBranchName(f"{self.id[0]}",f"{str_branch}",new_branch_name)
+        else:
+            print('nay')
