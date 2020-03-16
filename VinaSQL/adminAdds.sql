@@ -4,7 +4,7 @@ CREATE PROCEDURE `A_addAuthor`(IN authorNameInput varchar(45))
 		INSERT INTO tbl_author ( authorName )
         VALUES (authorNameInput);
 END; 
--- Adam's original trigger
+-- Adam's original trigger (FIXED)
 CREATE TRIGGER `valid_author_name` 
 	BEFORE INSERT ON tbl_book_authors FOR EACH ROW
      BEGIN
@@ -20,14 +20,14 @@ CREATE TRIGGER `valid_author_name`
   END;
   
 -- Procedure for Admin to add books to the library  
-CREATE PROCEDURE `A_addBook`(IN bookTitleInput varchar(45)
+CREATE PROCEDURE `A_addBook`(IN titleInput varchar(45)
                             IN pubIdInput int)
 	-- NOTE: all primary keys are not listed because pass-by-reference of IDs
     -- 		 has already been made by console, not needed to call when adding.
 	BEGIN
 		-- Since primary keys are AUTO_INCREMENT, there's no assignment.
-		INSERT INTO tbl_book ( bookTitle, pubId )
-        VALUES (bookTitleInput, pubIdInput);
+		INSERT INTO tbl_book ( title, pubId )
+        VALUES (titleInput, pubIdInput);
 END; 
 
 -- Procedure for Admin to add publisher to the library 
@@ -39,6 +39,8 @@ CREATE PROCEDURE `A_addPublisher`(IN publisherNameInput varchar(45),
 		INSERT INTO tbl_publisher ( publisherName, publisherAddress, publisherPhone )
         VALUES (publisherNameInput, publisherAddressInput, publisherPhoneInput);
 END; 
+-- Trigger created to check validity of name.
+-- Publisher name should not include any numbers.
 CREATE TRIGGER `valid_publisher_name` 
 	BEFORE INSERT ON tbl_publisher FOR EACH ROW
      BEGIN
@@ -62,14 +64,16 @@ CREATE PROCEDURE `A_addBorrower`(IN nameInput varchar(45),
 		INSERT INTO tbl_borrower ( name, address, phone )
 			VALUES (nameInput, addressInput, phoneInput);
 END;
+-- Trigger created to check validity of name.
+-- Borrower name should not include any numbers.
 CREATE TRIGGER `valid_borrower_name` 
 	BEFORE INSERT ON tbl_borrower FOR EACH ROW
      BEGIN
-      IF NEW.authorName LIKE '%0%' OR NEW.authorName LIKE '%1%'
-			OR NEW.authorName LIKE '%2%' OR NEW.authorName LIKE '%3%'
-			OR NEW.authorName LIKE '%4%' OR NEW.authorName LIKE '%5%'
-			OR NEW.authorName LIKE '%6%' OR NEW.authorName LIKE '%7%'
-			OR NEW.authorName LIKE '%8%' OR NEW.authorName LIKE '%9%'
+      IF NEW.borrowerName LIKE '%0%' OR NEW.borrowerName LIKE '%1%'
+			OR NEW.borrowerName LIKE '%2%' OR NEW.borrowerName LIKE '%3%'
+			OR NEW.borrowerName LIKE '%4%' OR NEW.borrowerName LIKE '%5%'
+			OR NEW.borrowerName LIKE '%6%' OR NEW.borrowerName LIKE '%7%'
+			OR NEW.borrowerName LIKE '%8%' OR NEW.borrowerName LIKE '%9%'
       THEN
           SIGNAL SQLSTATE '45000'
              SET MESSAGE_TEXT= 'Invalid borrower name.';
@@ -84,6 +88,8 @@ CREATE TRIGGER `valid_borrower_name`
 		INSERT INTO tbl_library_branch ( branchName, branchAddress)
 			VALUES (branchNameInput, branchAddressInput);
 END;
+-- Trigger created to check validity of name. 
+-- Branch name cannot start with a number.
 CREATE TRIGGER `valid_branch_name` 
 	BEFORE INSERT ON tbl_library_branch FOR EACH ROW
      BEGIN
