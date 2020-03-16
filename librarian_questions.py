@@ -5,26 +5,16 @@ import string_utils
 import questions
 
 def lib_question_one(self):
-    #if self.choice == "1":
         res = (fetchProcedures.fetchBranchs())
-<<<<<<< HEAD
-        out = string_utils.build_input_options(self, res)
+        out = string_utils.build_input_options(res)
         self.choice = input("Select Branch Number or q to quit to previous:\n" + out)
-        self.next()
-=======
-        out = ""
-        for i, val in enumerate(res):
-            output = f"{i}) {val}\n"
-            out += output
-        self.choice = input("Select Branch Number or q to quit to previous:\n" + out + ":")
         if self.choice == "q":
             self.home()
         else:
             self.next()
->>>>>>> 314b9c0c38998a160eb3d5c6435b171f1614bb27
 
 def lib_update_branch(self):
-    int_choice = int(self.choice)
+    int_choice = int(self.choice) - 1
     branches = (fetchProcedures.fetchBranchs())
     str_branch = (''.join(branches[int_choice]))
     self.id = fetchProcedures.fetchBranchIdByName(str_branch)
@@ -59,7 +49,7 @@ def lib_update_books(self):
     self.choice = input("Select Book Number or q to quit to previous:\n" + out)
     int_choice = int(self.choice)
     book = ''.join(books[int_choice])
-    book_id = fetchProcedures.fetchBookIdByBookName(self.id[0],book)
+    book_id = fetchProcedures.fetchBookIdByBkName(self.id[0],book)
     int_book_id = int(book_id[0])
     copies = fetchProcedures.fetchBookCopiesByBookId(self.id[0], int_book_id)
     num_of_copies = input(f'There are {copies} copies please add\n:')
