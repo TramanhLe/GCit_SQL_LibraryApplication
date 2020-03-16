@@ -5,7 +5,7 @@ import string_utils
 import questions
 
 def lib_question_one(self):
-    #if self.choice == "1":
+    # if self.choice == "1":
         res = (fetchProcedures.fetchBranchs())
         out = string_utils.build_input_options(self, res)
         self.choice = input("Select Branch Number or q to quit to previous:\n" + out)

@@ -3,12 +3,13 @@ import borrower_q_return
 import librarian_questions
 import start_questions
 
-# Each int : array within the values of borrower, librarian, and admin
+# "start" carries starting questions
 question_bank = {
     "start": {
         "borrower": start_questions.borrower_question_start,
         "librarian": start_questions.lib_question_start,
     },
+    # 
     "borrower": {
         # check_out
         1: [],

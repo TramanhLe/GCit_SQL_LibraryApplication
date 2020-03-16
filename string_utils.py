@@ -15,6 +15,15 @@ def build_input_options(self, array_of_options):
     self.choices_id_matrix = choices_matrix
     return choices
 
+def display_input_options(array_of_options):
+    choices = ""
+    for num, i in enumerate(array_of_options):
+        num += 1
+        string = f"{num}) {i} \n"
+        choices += string
+    return choices
+
+
 def convertTuple(tup): 
     str =  ''.join(tup) 
     return str

@@ -80,7 +80,7 @@ def fetchBooks():
     return results
 
 def fetchBorrowers():
-    myCursor.callproc('fetBorrowers')
+    myCursor.callproc('fetchBorrowers')
     for x in myCursor.stored_results():
         results=x.fetchall()
     return results
