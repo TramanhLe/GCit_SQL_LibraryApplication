@@ -18,6 +18,10 @@ def borrower_question_start(self):
 
 def lib_question_start(self):
     self.choice = input("1)Enter Branch you manage\n 2)Quit to previous\n" )
+        if self.choice == "1":
+        print('please select branch')
+    else:
+        self.choice == "2"
+        self.home()
     
-
 
