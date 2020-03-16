@@ -34,22 +34,30 @@ def add_book_author(self):
     publishers =  fetchProcedures.fetchPublishers()
     publishers = string_utils.build_input_options(self, publishers)
     self.choice = input("And who published this book?\n" + publishers)
-    self.store["publishers"] = self.grabId()
+    self.store["publisherId"] = self.grabId()
 
     # CREATE NEW BOOK WITH AUTHOR
 
 def update_book(self):
-    self.choice = input("Select a book you would like to update\n")
     books = fetchProcedures.fetchBooks()
     books = string_utils.build_input_options(self, books)
     self.choice = input("Which book do you want to update?\n" + books)
     self.store["bookId"] = self.grabId()
+
+    self.store["new_title"] = input("What do you want the new title to be?\n")
+    publishers = fetchProcedures.fetchPublishers()
+    publishers = string_utils.build_input_options(self, publishers)
+    self.choice = input("Who should the new publisher be?\n")
+    self.store["new_pub_id"] = self.grabId()
+
+    # UPDATE BOOK BY ID   (new_title, new_pub_id)
     
 
 def delete_book(self):
-    self.choice = input("Select the book you would like to delete\n")
     books = fetchProcedures.fetchBooks()
     books = string_utils.build_input_options(self, books)
-    self.choice = input("Which book do you want to update?\n" + books)
+    self.choice = input("Which book do you want to delete?\n" + books)
     self.store["bookId"] = self.grabId()
+
+    # DELETE BOOK BY ID
 

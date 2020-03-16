@@ -13,13 +13,12 @@ def start(self):
 
 
 def add_publisher(self):
-    add_data = {}
-    add_data["name"] = input("What is the name of the publisher you wish to add?\n")
-    add_data["address"] = input("What is the address of this publisher?")
-    add_data["phone"] = input("What is the phone number of this publisher?")
+    self.store["name"] = input("What is the name of the publisher you wish to add?\n")
+    self.store["address"] = input("What is the address of this publisher?")
+    self.store["phone"] = input("What is the phone number of this publisher?")
 
     # Build function to display what they have written, so we can them confirm it is good
-    self.choice = input("Does that look right to you?\n1) Yes\n2) No")
+    self.choice = input("Does that look right to you?\n1)Yes\n2)No")
     if self.choice == "1":
         print("Added new publisher")
         self.complete = True
@@ -28,7 +27,18 @@ def add_publisher(self):
     pass
 
 def update_publisher(self):
-    pass
+    publishers = fetchProcedures.fetchBorrowers()
+    publishers = string_utils.build_input_options(self, publishers)
+    self.choice = input("Which publisher would you like to update?\n")
+    
+    self.store["name"] = input("What is the name of the publisher you wish to add?\n")
+    self.store["address"] = input("What is the address of this publisher?")
+    self.store["phone"] = input("What is the phone number of this publisher?")
+
+    # UPDATE PUBLISHER (name, address, phone)
 
 def delete_publisher(self):
-    pass
+    publishers = fetchProcedures.fetchBorrowers()
+    publishers = string_utils.build_input_options(self, publishers)
+    self.choice = input("Which publisher would you like to update?\n")
+    # DELETE PUBLISHER BY ID HERE
