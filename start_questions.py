@@ -1,5 +1,5 @@
 import fetchProcedures
-
+import subprocess 
 
 def borrower_question_start(self):
     self.store["cardNo"] = input("Enter your card number.\n")
@@ -17,11 +17,12 @@ def borrower_question_start(self):
         pass
 
 def lib_question_start(self):
-    self.choice = input("1)Enter Branch you manage\n 2)Quit to previous\n" )
+    self.choice = input("1)Enter Branch you manage\n2)Quit to previous\n" )
     if self.choice == "1":
         print('please select branch')
     else:
         self.choice == "2"
+        subprocess.call(["python3", "main.py"])
         self.home()
-    
+        pass
 
