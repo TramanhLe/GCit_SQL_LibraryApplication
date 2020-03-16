@@ -1,15 +1,13 @@
 import fetchProcedures
 import updateProcedures
 import start_questions
+import string_utils
 import questions
 
 def lib_question_one(self):
     if self.choice == "1":
         res = (fetchProcedures.fetchBranchs())
-        out = ""
-        for i, val in enumerate(res):
-            output = f"{i}) {val}\n"
-            out += output
+        out = string_utils.build_input_options(self, res)
         self.choice = input("Select Branch Number or q to quit to previous:\n" + out)
         self.next()
 

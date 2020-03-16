@@ -3,6 +3,7 @@ import updateProcedures
 import fetchProcedures
 
 def start(self):
+    print("What would you like to do?\n")
     self.choice = input("1) Add \n2) Update\n3) Delete Publisher\n")
     if self.choice == "1":
         print("Add Publisher")

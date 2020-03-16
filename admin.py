@@ -39,5 +39,3 @@ class Admin:
         elif self.choice == "2":
             print("Thanks for using Gold Coast Solutions")
 
-test = Admin()
-test()
