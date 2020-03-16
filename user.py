@@ -50,6 +50,8 @@ class User:
         self.reset()
 
     def reset(self):
+        self.track = 0
+        self.track_list = []
         self.choice = input(f"Continue program as {self.role}?\n1)Yes\n2)No (terminate program)\n")
         if self.choice == "1":
             self.__call__()

@@ -11,6 +11,9 @@ def start(self):
         update_library(self)
     elif self.choice == "3":
         delete_library(self)
+    else:
+        print("Must enter a valid option (ie 1, 2, 3)")
+        start(self)
 
 def add_library(self):
     self.store["branchName"] = input("What is the name of this new library branch")
@@ -21,7 +24,7 @@ def update_library(self):
     libraries = fetchProcedures.fetchBranchs()
     libraries = string_utils.build_input_options(self, libraries)
     self.choice = input("Which library would you like to update?\n" + libraries)
-    self.store["branchId"] = self.grab()
+    self.store["branchId"] = self.grabId()
 
     self.store["branchName"] = input("What is the new name of your borrower\n")
     self.store["branchAddress"] = input("What's the new address of your borrower\n")
@@ -30,6 +33,6 @@ def update_library(self):
 def delete_library(self):
     libraries = fetchProcedures.fetchLibraries()
     libraries = string_utils.build_input_options(self, libraries)
-    self.choice = input("Which library would you like to update?\n" + libraries)
-    self.store["branchId"] = self.grab()
+    self.choice = input("Which library would you like to delete?\n" + libraries)
+    self.store["branchId"] = self.grabId()
     # DELETE LIBRARY BY ID (branchId)

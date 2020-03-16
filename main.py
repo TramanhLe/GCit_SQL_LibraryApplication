@@ -1,18 +1,7 @@
 import questions
 import user
 import admin
-# Create a library management application on the Command Line which will follow the following protocol.
 
-# User is first presented the following options:
-
-# MAIN:   
-#     Welcome to the GCIT Library Management System. 
-#     Which category of auser are you
-
-#     1)Librarian
-#     2)Administrator
-#     3)Borrower
-   
 
 print("Welcome to the GCIT Library Management System!\n")
 print("What kind of user are you?\n")

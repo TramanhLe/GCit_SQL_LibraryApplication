@@ -30,6 +30,10 @@ class Admin:
                 admin_q_publisher.start(self)
             elif self.choice == "3":
                 admin_q_library.start(self)
+            elif self.choice == "4":
+                admin_q_borrower.start(self)
+            elif self.choice == "5":
+                admin_q_due_date.start(self)
         self.reset()
 
     def reset(self):

@@ -3,7 +3,7 @@ import mysql.connector
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="Rootadmin123",
+    password="8525",
     auth_plugin='mysql_native_password',
     database="library") 
 myCursor= mydb.cursor()
@@ -80,11 +80,19 @@ def fetchBooks():
     return results
 
 def fetchBorrowers():
-    myCursor.callproc('sp_fetchBorrowers')
+    myCursor.callproc('fetBorrowers')
     for x in myCursor.stored_results():
         results=x.fetchall()
     return results
 
+<<<<<<< HEAD
+=======
+def fetchLibraries():
+    myCursor.callproc('fetchLibraries')
+    for x in myCursor.stored_results():
+        results=x.fetchall()
+    return results
+>>>>>>> e9eab949e06262422ec67c586c9ea772e8463fac
 
 def w_fetchPublishers():
     myCursor.callproc('sp_fetchPublishers')
@@ -115,3 +123,7 @@ def fetchAuthorIdByName(input):
     for x in myCursor.stored_results():
         results=x.fetchone()
     return results
+<<<<<<< HEAD
+=======
+
+>>>>>>> e9eab949e06262422ec67c586c9ea772e8463fac

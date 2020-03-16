@@ -1,4 +1,9 @@
 import fetchProcedures
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e9eab949e06262422ec67c586c9ea772e8463fac
 # ["string", id]
 def build_input_options(self, array_of_options):
     choices = ""
@@ -16,6 +21,7 @@ def convertTuple(tup):
     str =  ''.join(tup) 
     return str
 
+<<<<<<< HEAD
 
 def display_input_options(array_of_options):
     choices = ""
@@ -24,3 +30,8 @@ def display_input_options(array_of_options):
         string = f"{num}) {i} \n"
         choices += string
     return choices
+=======
+def convertTuple(tup): 
+    str =  ''.join(tup) 
+    return str
+>>>>>>> e9eab949e06262422ec67c586c9ea772e8463fac
