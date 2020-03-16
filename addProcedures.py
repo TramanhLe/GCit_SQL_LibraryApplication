@@ -20,3 +20,6 @@ def addAuthor(authorName):
 
 def addPublisher(pubName,pubAddress,pubPhone):
     myCursor.callproc('A_addPublisher',[pubName,pubAddress,pubPhone])
+
+def addBook(title,pubId):
+    myCursor.callproc('A_addBook',[title,pubId])

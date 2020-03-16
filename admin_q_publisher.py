@@ -4,12 +4,12 @@ import fetchProcedures
 
 def start(self):
     self.choice = input("1) Add \n2) Update\n3) Delete Publisher\n")
-        if self.choice == "1":
-            print("Add Publisher")
-        elif self.choice == "2":
-            print("Update an existing Publisher")
-        elif self.choice == "3":
-            print("Delete an existing Publisher")
+    if self.choice == "1":
+        print("Add Publisher")
+    elif self.choice == "2":
+        print("Update an existing Publisher")
+    elif self.choice == "3":
+        print("Delete an existing Publisher")
 
 
 def add_publisher(self):
