@@ -66,14 +66,17 @@ while True:
                 pubAddress=input("Enter the new publisher: "+pubName+" address\n")
                 if pubAddress=='quit':
                     break
-                pubPhoneNumber=input("Enter "+pubName+"'s phone number")
+                pubPhoneNumber=input("Enter "+pubName+"'s phone number\n")
                 if pubPhoneNumber=='quit':
                     break
+                addProcedures.addPublisher(pubName,pubAddress,pubPhoneNumber)
                 # Insert adding publisher procedure here
                 print("Adding publisher")
             elif int(ans)==2:
                 #Insert fetch publisher procedure here
-                pubChoice=input("Which publisher do you want to update? \n")
+                pubList=fetchProcedures.fetchPublishers()
+                pubs = string_utils.build_input_options(pubList)
+                pubChoice=input(pubs+"Which publisher do you want to update? \n")
                 if pubChoice=='quit':
                     break
                 newPubName=input("Enter new publisher name\n")
@@ -96,7 +99,7 @@ while True:
                 break
             else:
                 print("Invalid input type 'quit' to go back")
-    #library branch
+    #library branch DONE
     elif int(ans)==3:
         while True:
             ans=input("1) Add Library Branch\n2) Update Library Branch\n3) Delete Library Branch\n")
@@ -110,7 +113,6 @@ while True:
                 if newBranchAddress=='quit':
                     break
                 addProcedures.addBranch(newBranchName,newBranchAddress)
-                #Enter adding library branch proceudre here
                 print("Adding Library Branch")
                 break
             elif int(ans)==2:
@@ -130,7 +132,6 @@ while True:
                         break
                     else:
                         updateProcedures.updateBranchInfo(newBranchName,newBranchAddress,branchId[0])
-
                         print("library branch updated")
                         break
             elif int(ans)==3:
@@ -144,10 +145,9 @@ while True:
                 deleteProcedures.deleteBranch(branchId[0])
                 print("Deleting Library Branch")
                 break
-                
             else:
                 print("Invalid input type 'quit' to go back")
-    #borrowers
+    #borrowers DONE
     elif int(ans)==4:
         while True:
             ans=input("1) Add Borrower\n2) Update Borrower\n3) Delete Borrower\n")
@@ -161,6 +161,19 @@ while True:
                 print("Adding Borrower")
                 break
             elif int(ans)==2:
+                borrowerList=fetchProcedures.fetchBorrowers()
+                borrowers = string_utils.build_input_options(borrowerList)
+                borrowerChoice=input(borrowers+" Enter borrower card # you want to update?\n")
+                bNewName=input("Enter the borrowers new name.\n")
+                if bNewName=='quit':
+                    break
+                bNewAddress=input("Enter "+bNewName+" new address.\n")
+                if bNewAddress=='quit':
+                    break
+                bNewPhone=input("Enter "+bNewName+" new phone number. \n")
+                if bNewPhone=='quit':
+                    break
+                updateProcedures.updateBorrowerInfo(borrowerChoice,bNewName,bNewAddress,bNewPhone)
                 print("Updating Borrower")
                 break
             elif int(ans)==3:

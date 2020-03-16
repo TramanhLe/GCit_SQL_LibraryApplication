@@ -59,3 +59,9 @@ def fetchBorrowers():
     for x in myCursor.stored_results():
         results=x.fetchall()
     return results
+
+def fetchPublishers():
+    myCursor.callproc('fetchPublishers')
+    for x in myCursor.stored_results():
+        results=x.fetchall()
+    return results

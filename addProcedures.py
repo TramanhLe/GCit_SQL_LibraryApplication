@@ -14,3 +14,9 @@ def addBranch(branchName,branchAddress):
 
 def addBorrower(bName,bAddress,bPhone):
     myCursor.callproc('A_addBorrower',[bName,bAddress,bPhone])
+
+def addAuthor(authorName):
+    myCursor.callproc('A_addAuthor',[authorName])
+
+def addPublisher(pubName,pubAddress,pubPhone):
+    myCursor.callproc('A_addPublisher',[pubName,pubAddress,pubPhone])

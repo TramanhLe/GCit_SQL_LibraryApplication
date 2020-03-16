@@ -35,6 +35,12 @@ def updateBookCopiesById(branchId, bookId, newCopies):
     mydb.commit()
     print(f"you added {newCopies} new copies")
 
+def updateBorrowerInfo(cardNum,newName,newAddress,newPhone):
+    myCursor.callproc('A_updateBorrower',[cardNum,newName,newAddress,newPhone])
+
+def updatePublisherInfo(pubId,pubName,pubAddress,pubPhone):
+    myCursor.callproc('A_updatePublisher',[pubId,pubName,pubAddress,pubPhone])
+
 
 
 #Not done
