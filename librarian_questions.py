@@ -6,7 +6,7 @@ import questions
 
 def lib_question_one(self):
         res = (fetchProcedures.fetchBranchs())
-        out = string_utils.build_input_options(res)
+        out = string_utils.display_input_options(res)
         self.choice = input("Select Branch Number or q to quit to previous:\n" + out)
         if self.choice == "q":
             self.home()
@@ -33,7 +33,7 @@ def lib_update_branch(self):
             self.home()
         else:
             print('No Changes for Branch Address')
-    elif self.choice == "2":
+    elif self.choice = "2":
         self.next()
     else: 
         self.choice == "3"
