@@ -5,8 +5,8 @@ mydb = mysql.connector.connect(
     user="root",
     password="8525",
     auth_plugin='mysql_native_password',
-    database="library")
-myCursor = mydb.cursor()
+    database="library") 
+myCursor= mydb.cursor()
 
 results=[]
 
@@ -49,11 +49,12 @@ def fetchBookIdByBookName(input):
     return results
 
 def fetchCopiesByIds(branchId,bookId):
-    myCursor.callproc('sp_fetchCopiesByIds',[input])
+    myCursor.callproc('sp_fetchCopiesByIds',[branchId,bookId])
     for x in myCursor.stored_results():
         results=x.fetchone()
     return results
 
+<<<<<<< HEAD
 
 def fetchBooksByBorrowerId(borrowerId):
     myCursor.callproc('getBorrowedBooks', [borrowerId])
@@ -79,3 +80,10 @@ def fetchBooks():
         results=x.fetchall()
     return results
 
+=======
+def fetchBorrowers():
+    myCursor.callproc('sp_fetchBorrowers')
+    for x in myCursor.stored_results():
+        results=x.fetchall()
+    return results
+>>>>>>> 71756192fd46d661648a98064234e3003d8021cc
