@@ -8,7 +8,7 @@ def start(self):
     if self.choice == "1":
         self.choice = input("1) Add Book\n2) Update Book\n3) Delete Book\n")
         if self.choice == "1":
-            add_book_author(self)
+            add_book(self)
         elif self.choice == "2":
             print("Update an existing book")
         elif self.choice == "3":
@@ -23,7 +23,7 @@ def start(self):
             print("Delete an existing Author")
 
 
-def add_book_author(self):
+def add_book(self):
     self.store["title"] = input("What is the title of the book you want to add?\n")
 
     authors = fetchProcedures.fetchAuthors()
@@ -61,3 +61,26 @@ def delete_book(self):
 
     # DELETE BOOK BY ID
 
+def add_author(self):
+    self.store["authorName"] = input("What is the name of the new author?\n")
+
+    # INSERT AUTHOR (authorName)
+
+def update_author(self):
+    authors = fetchProcedures.fetchAuthors()
+    authors = string_utils.build_input_options(self, authors)
+    self.choice = input("Which author would you like to update?\n")
+    self.store["authorId"] = self.grab()
+
+    self.store["authorName"] = input("What would you like to change the author's name to?\n")
+
+    # UPDATE AUTHOR BY ID (authorId, authorName)
+
+
+def delete_author(self):
+    authors = fetchProcedures.fetchAuthors()
+    authors = string_utils.build_input_options(self, authors)
+    self.choice = input("Which author would you like to delete?\n")
+    self.store["authorId"] = self.grab()
+
+    # DELETE AUTHOR BY ID (authorId)

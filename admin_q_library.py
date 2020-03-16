@@ -30,6 +30,6 @@ def update_library(self):
 def delete_library(self):
     libraries = fetchProcedures.fetchLibraries()
     libraries = string_utils.build_input_options(self, libraries)
-    self.choice = input("Which library would you like to update?\n" + libraries)
+    self.choice = input("Which library would you like to delete?\n" + libraries)
     self.store["branchId"] = self.grab()
     # DELETE LIBRARY BY ID (branchId)
