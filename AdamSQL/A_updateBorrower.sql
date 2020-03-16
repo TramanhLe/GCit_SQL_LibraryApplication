@@ -5,8 +5,8 @@ CREATE PROCEDURE `A_updateBorrower`(IN inputCardNo int,
                                     IN newPhone varchar(50))
 BEGIN
 	UPDATE tbl_borrower b
-    SET b.name = newName
-		AND b.address = newAddress
-        AND b.phone = newPhone
+    SET b.name = newName,
+	b.address = newAddress,
+	b.phone = newPhone
     WHERE b.cardNo = inputCardNo;
 END
