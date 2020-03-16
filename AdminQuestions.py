@@ -3,6 +3,7 @@ import updateProcedures
 import fetchProcedures
 import deleteProcedures
 import addProcedures
+import admin_q_publisher
 
 while True:
     updateProcedures.mydb.commit()
@@ -73,19 +74,20 @@ while True:
                 # Insert adding publisher procedure here
                 print("Adding publisher")
             elif int(ans)==2:
-                #Insert fetch publisher procedure here
-                pubList=fetchProcedures.fetchPublishers()
-                pubs = string_utils.build_input_options(pubList)
-                pubChoice=input(pubs+"Which publisher do you want to update? \n")
-                if pubChoice=='quit':
-                    break
-                newPubName=input("Enter new publisher name\n")
-                if newPubName=='quit':
-                    break
-                newPubAddress=input("Enter the new address for "+newPubName+":\n")
-                if newPubAddress=='quit':
-                    break
-                #insert update publisher procedure here
+                # #Insert fetch publisher procedure here
+                # pubList=fetchProcedures.fetchPublishers()
+                # pubs = string_utils.build_input_options(pubList)
+                # pubChoice=input(pubs+"Which publisher do you want to update? \n")
+                # if pubChoice=='quit':
+                #     break
+                # newPubName=input("Enter new publisher name\n")
+                # if newPubName=='quit':
+                #     break
+                # newPubAddress=input("Enter the new address for "+newPubName+":\n")
+                # if newPubAddress=='quit':
+                #     break
+                # #insert update publisher procedure here
+                admin_q_publisher.update_publisher()
                 print("Updating publisher")
                 break
             elif int(ans)==3:
