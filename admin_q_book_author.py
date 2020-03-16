@@ -13,6 +13,9 @@ def start(self):
             print("Update an existing book")
         elif self.choice == "3":
             print("Delete an existing book")
+        else:
+            print("Must enter a valid option (ie 1, 2, 3)")
+            start(self)
     elif self.choice == "2":
         self.choice = input("1) Add Author\n2) Update Author\n3) Delete Author\n")
         if self.choice == "1":
@@ -21,7 +24,12 @@ def start(self):
             print("Update an existing Author")
         elif self.choice == "3":
             print("Delete an existing Author")
-
+        else:
+            print("Must enter a valid option (ie 1, 2, 3)")
+            start(self)
+    else:
+        print("Must enter a valid option (ie 1, 2, 3)")
+        start(self)
 
 def add_book(self):
     self.store["title"] = input("What is the title of the book you want to add?\n")

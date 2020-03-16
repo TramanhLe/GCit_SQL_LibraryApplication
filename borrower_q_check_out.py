@@ -19,10 +19,9 @@ def question_three(self):
     books = string_utils.build_input_options(self, books)
     self.choice = input("Which book would you like to check out?\n" + books)
     self.store["bookId"] = self.grabId()
-    # CHECK OUT BOOK FUNCTION HERE
+    # INSERT NEW BOOK_LOAN (cardNo, bookId)
     self.next()
     
 
-# def return_to_initial_question(self):
-#     self.home()
+
 

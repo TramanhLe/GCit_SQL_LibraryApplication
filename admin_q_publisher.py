@@ -11,6 +11,9 @@ def start(self):
         print("Update an existing Publisher")
     elif self.choice == "3":
         print("Delete an existing Publisher")
+    else:
+        print("Must enter a valid option (ie 1, 2, 3)")
+        start(self)
 
 
 def add_publisher(self):

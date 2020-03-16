@@ -11,6 +11,9 @@ def start(self):
         update_library(self)
     elif self.choice == "3":
         delete_library(self)
+    else:
+        print("Must enter a valid option (ie 1, 2, 3)")
+        start(self)
 
 def add_library(self):
     self.store["branchName"] = input("What is the name of this new library branch")

@@ -11,6 +11,9 @@ def start(self):
         update_borrower(self)
     elif self.choice == "3":
         delete_borrower(self)
+    else:
+        print("Must enter a valid option (ie 1, 2, 3)")
+        start(self)
 
 def add_borrower(self):
     self.store["name"] = input("What is the name of your new borrower\n")
