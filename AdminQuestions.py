@@ -2,6 +2,7 @@ import string_utils
 import updateProcedures
 import fetchProcedures
 import deleteProcedures
+import addProcedures
 
 while True:
     updateProcedures.mydb.commit()
@@ -108,6 +109,7 @@ while True:
                 newBranchAddress=input("What is the address for the new branch "+newBranchName+"?\n")
                 if newBranchAddress=='quit':
                     break
+                addProcedures.addBranch(newBranchName,newBranchAddress)
                 #Enter adding library branch proceudre here
                 print("Adding Library Branch")
                 break
@@ -128,6 +130,7 @@ while True:
                         break
                     else:
                         updateProcedures.updateBranchInfo(newBranchName,newBranchAddress,branchId[0])
+
                         print("library branch updated")
                         break
             elif int(ans)==3:
@@ -151,6 +154,10 @@ while True:
             if ans=="quit":
                 break
             elif int(ans)==1:
+                borrowerName=input("Enter borrowers name.\n")
+                borrowerAddress=input("enter "+borrowerName+" address.\n")
+                borrowerPhone=input("enter " +borrowerName+" phone numbner.\n")
+                addProcedures.addBorrower(borrowerName,borrowerAddress,borrowerPhone)
                 print("Adding Borrower")
                 break
             elif int(ans)==2:
