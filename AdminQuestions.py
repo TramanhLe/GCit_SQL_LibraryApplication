@@ -3,6 +3,7 @@ import updateProcedures
 import fetchProcedures
 import deleteProcedures
 import addProcedures
+import admin_q_publisher
 
 while True:
     updateProcedures.mydb.commit()
@@ -12,10 +13,13 @@ while True:
     if ans=="quit":
         print("end")
         break
-    #Author and book
+    #Author and book DONE
     elif int(ans)==1:
         #Book and author loop
         while True:
+            fetchProcedures.mydb.commit()
+            deleteProcedures.mydb.commit()
+            updateProcedures.mydb.commit()
             ans=input("1) Add/Update/Delete Book\n2) Add/Update/Delete Author\n")
             if ans=="quit":
                 break
@@ -25,13 +29,50 @@ while True:
                     if ans=="quit":
                         break
                     elif int(ans)==1:
-                        print("Adding book")
+                        bookName=input("Enter the book name\n")
+                        if bookName=='quit':
+                            break
+                        pubList=fetchProcedures.w_fetchPublishers()
+                        pubs = string_utils.build_input_options(pubList)
+                        pubChoice=input(pubs+"Which publisher do you want to add to the book? \n")
+                        if pubChoice=='quit':
+                            break
+                        pubChoiceName=(''.join(pubList[int(pubChoice)-1]))
+                        pubId=fetchProcedures.fetchPubIdByName(pubChoiceName)
+                        addProcedures.addBook(bookName,pubId[0])
+                        print("Added book")
                         break
                     elif int(ans)==2:
-                        print ("Updating book")
+                        bookList=fetchProcedures.w_fetchBooks()
+                        books = string_utils.build_input_options(bookList)
+                        bookChoice=input(books+"Which book do you want to update?\n")
+                        if bookChoice=='quit':
+                            break
+                        bookChoiceName=(''.join(bookList[int(bookChoice)-1]))
+                        bookId=fetchProcedures.fetchBookIdByBookName(bookChoiceName)
+                        newBookName=input("Enter the new book name for "+bookChoiceName+"\n")
+                        if newBookName=='quit':
+                            break
+                        pubList=fetchProcedures.w_fetchPublishers()
+                        pubs = string_utils.build_input_options(pubList)
+                        pubChoice=input(pubs+"Which publisher do you want to add to the book? \n")
+                        if pubChoice=='quit':
+                            break
+                        pubChoiceName=(''.join(pubList[int(pubChoice)-1]))
+                        pubId=fetchProcedures.fetchPubIdByName(pubChoiceName)
+                        updateProcedures.updateBookInfo(bookId[0],newBookName,pubId[0])
+                        print ("Updated book")
                         break
                     elif int(ans)==3:
-                        print ("Deleting book")
+                        bookList=fetchProcedures.w_fetchBooks()
+                        books = string_utils.build_input_options(bookList)
+                        bookChoice=input(books+"Which book do you want to delete?\n")
+                        if bookChoice=='quit':
+                            break
+                        bookChoiceName=(''.join(bookList[int(bookChoice)-1]))
+                        bookId=fetchProcedures.fetchBookIdByBookName(bookChoiceName)
+                        deleteProcedures.deleteBook(bookId[0])
+                        print ("Book deleted")
                         break
                     else:
                         print("Invalid input type 'quit' to go back")
@@ -41,19 +82,44 @@ while True:
                     if ans=="quit":
                         break
                     elif int(ans)==1:
-                        print("Adding Author")
+                        authorName=input("Enter the name of the author?\n")
+                        if authorName=='quit':
+                            break
+                        addProcedures.addAuthor(authorName)
+                        print("Added Author")
                         break
                     elif int(ans)==2:
-                        print("Updating Author")
+                        authorList=fetchProcedures.w_fetchAuthors()
+                        authors = string_utils.build_input_options(authorList)
+                        authorChoice=input(authors+"Which author do you want to update?\n")
+                        if authorChoice=='quit':
+                            break
+                        authorChoiceName=(''.join(authorList[int(authorChoice)-1]))
+                        print (authorChoiceName)
+                        authorId=fetchProcedures.fetchAuthorIdByName(authorChoiceName)
+                        newName=input("What is the author's new name?\n")
+                        if newName=='quit':
+                            break
+                        updateProcedures.updateAuthorInfo(authorId[0],newName)
+                        print("Updated Author")
                         break
                     elif int(ans)==3:
-                        print("Deleting Author")
+                        authorList=fetchProcedures.w_fetchAuthors()
+                        authors = string_utils.build_input_options(authorList)
+                        authorChoice=input(authors+"Which author do you want to delete?\n")
+                        if authorChoice=='quit':
+                            break
+                        authorChoiceName=(''.join(authorList[int(authorChoice)-1]))
+                        print (authorChoiceName)
+                        authorId=fetchProcedures.fetchAuthorIdByName(authorChoiceName)
+                        deleteProcedures.deleteAuthor(authorId[0])
+                        print("Author deleted")
                         break
                     else:
                         print("Invalid Input type 'quit' to go back")
             else:
                 print("Invalid input type 'quit' to go back")
-    #publisher 
+    #publisher DONE
     elif int(ans)==2:
         while True:
             ans=input("1) Add publisher\n2) Update Publisher\n3) Delete Publisher\n")
@@ -66,14 +132,16 @@ while True:
                 pubAddress=input("Enter the new publisher: "+pubName+" address\n")
                 if pubAddress=='quit':
                     break
-                pubPhoneNumber=input("Enter "+pubName+"'s phone number")
+                pubPhoneNumber=input("Enter "+pubName+"'s phone number\n")
                 if pubPhoneNumber=='quit':
                     break
-                # Insert adding publisher procedure here
-                print("Adding publisher")
+                addProcedures.addPublisher(pubName,pubAddress,pubPhoneNumber)
+                print("Added publisher")
+                break
             elif int(ans)==2:
-                #Insert fetch publisher procedure here
-                pubChoice=input("Which publisher do you want to update? \n")
+                pubList=fetchProcedures.w_fetchPublishers()
+                pubs = string_utils.build_input_options(pubList)
+                pubChoice=input(pubs+"Which publisher do you want to update? \n")
                 if pubChoice=='quit':
                     break
                 newPubName=input("Enter new publisher name\n")
@@ -82,21 +150,28 @@ while True:
                 newPubAddress=input("Enter the new address for "+newPubName+":\n")
                 if newPubAddress=='quit':
                     break
-                #insert update publisher procedure here
-                print("Updating publisher")
+                newPubPhone=input("Enter the new phone number for "+newPubName+":\n")
+                if newPubPhone=='quit':
+                    break
+                pubChoiceName=(''.join(pubList[int(pubChoice)-1]))
+                pubId=fetchProcedures.fetchPubIdByName(pubChoiceName)
+                updateProcedures.updatePublisherInfo(pubId[0],newPubName,newPubAddress,newPubPhone)
+                print("Updated publisher")
                 break
             elif int(ans)==3:
-                #insert fetch publisher procedure here
-                pubChoice=input("Which publisher do you want to delete?\n")
+                pubList=fetchProcedures.w_fetchPublishers()
+                pubs = string_utils.build_input_options(pubList)
+                pubChoice=input(pubs+"Which publisher do you want to delete? \n")
                 if pubChoice=='quit':
                     break
-                #insert fetch publisher id by name here
-                #insert delete publisher procedure here
-                print("Delete Publisher")
+                pubChoiceName=(''.join(pubList[int(pubChoice)-1]))
+                pubId=fetchProcedures.fetchPubIdByName(pubChoiceName)
+                deleteProcedures.deletePublisher(pubId[0])
+                print("Publisher deleted")
                 break
             else:
                 print("Invalid input type 'quit' to go back")
-    #library branch
+    #library branch DONE
     elif int(ans)==3:
         while True:
             ans=input("1) Add Library Branch\n2) Update Library Branch\n3) Delete Library Branch\n")
@@ -110,7 +185,6 @@ while True:
                 if newBranchAddress=='quit':
                     break
                 addProcedures.addBranch(newBranchName,newBranchAddress)
-                #Enter adding library branch proceudre here
                 print("Adding Library Branch")
                 break
             elif int(ans)==2:
@@ -130,7 +204,6 @@ while True:
                         break
                     else:
                         updateProcedures.updateBranchInfo(newBranchName,newBranchAddress,branchId[0])
-
                         print("library branch updated")
                         break
             elif int(ans)==3:
@@ -144,10 +217,9 @@ while True:
                 deleteProcedures.deleteBranch(branchId[0])
                 print("Deleting Library Branch")
                 break
-                
             else:
                 print("Invalid input type 'quit' to go back")
-    #borrowers
+    #borrowers DONE
     elif int(ans)==4:
         while True:
             ans=input("1) Add Borrower\n2) Update Borrower\n3) Delete Borrower\n")
@@ -161,6 +233,19 @@ while True:
                 print("Adding Borrower")
                 break
             elif int(ans)==2:
+                borrowerList=fetchProcedures.fetchBorrowers()
+                borrowers = string_utils.build_input_options(borrowerList)
+                borrowerChoice=input(borrowers+" Enter borrower card # you want to update?\n")
+                bNewName=input("Enter the borrowers new name.\n")
+                if bNewName=='quit':
+                    break
+                bNewAddress=input("Enter "+bNewName+" new address.\n")
+                if bNewAddress=='quit':
+                    break
+                bNewPhone=input("Enter "+bNewName+" new phone number. \n")
+                if bNewPhone=='quit':
+                    break
+                updateProcedures.updateBorrowerInfo(borrowerChoice,bNewName,bNewAddress,bNewPhone)
                 print("Updating Borrower")
                 break
             elif int(ans)==3:
@@ -175,12 +260,19 @@ while True:
     #override due date for a boook
     elif int(ans)==5:
         while True:
-            cardNum=input("Enter the borrower Card Number you want to update the due date for?\n")
-            if cardNum=='quit':
+            cardNumList=fetchProcedures.fetchBorrowers()
+            cardNums= string_utils.build_input_options(cardNumList)
+            cardNumChoice=input(cardNums+"Enter the borrower Card Number you want to update the due date for?\n")
+            if cardNumChoice=='quit':
                 break
             else:
                 #Insert fetching all borrowed book from the card number
-                bookChoice=input("Which book do you want to update the due date for?\n")
+                bookList=fetchProcedures.fetchBorrowerBooks(cardNumChoice)
+                books= string_utils.build_input_options(bookList)
+                bookChoice=input(books+"Which book do you want to update the due date for?\n")
+                if bookChoice=='quit':
+                    break
+
                 #choices 
                 dueMonth=input("Enter the new due date month.\n")
                 dueDay=input("Enter the new day for due date.\n")

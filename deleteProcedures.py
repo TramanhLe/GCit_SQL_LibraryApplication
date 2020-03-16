@@ -18,3 +18,12 @@ def deleteBranch(input):
 
 def deleteBorrower(input):
     myCursor.callproc('sp_deleteBorrower',[input])
+
+def deletePublisher(input):
+    myCursor.callproc('sp_deletePublisher',[input])
+
+def deleteAuthor(input):
+    myCursor.callproc('sp_deleteAuthor',[input])
+
+def deleteBook(input):
+    myCursor.callproc('sp_deleteBook',[input])
