@@ -23,6 +23,6 @@ def question_three(self):
     self.next()
     
 
-def return_to_initial_question(self):
-    self.home()
+# def return_to_initial_question(self):
+#     self.home()
 

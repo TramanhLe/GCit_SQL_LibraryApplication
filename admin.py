@@ -1,4 +1,8 @@
 import admin_q_book_author
+import admin_q_borrower
+import admin_q_due_date
+import admin_q_publisher
+import admin_q_library
 
 class Admin:
     def __init__(self):
@@ -11,7 +15,7 @@ class Admin:
 
     def grabId(self):
         return self.choices_id_matrix[self.choice]
-        
+
     def __call__(self):
         self.complete = False
         print("What would you like to do?\n")
@@ -24,6 +28,8 @@ class Admin:
                 admin_q_book_author.start(self)
             elif self.choice == "2":
                 admin_q_publisher.start(self)
+            elif self.choice == "3":
+                admin_q_library.start(self)
         self.reset()
 
     def reset(self):
@@ -33,5 +39,3 @@ class Admin:
         elif self.choice == "2":
             print("Thanks for using Gold Coast Solutions")
 
-test = Admin()
-test()

@@ -47,3 +47,11 @@ class User:
             self.track_list[self.track](self)
         if self.complete == False and len(self.track_list) == 0:
             self.engine()
+        self.reset()
+
+    def reset(self):
+        self.choice = input(f"Continue program as {self.role}?\n1)Yes\n2)No (terminate program)\n")
+        if self.choice == "1":
+            self.__call__()
+        elif self.choice == "2":
+            print("Thanks for using Gold Coast Solutions")
