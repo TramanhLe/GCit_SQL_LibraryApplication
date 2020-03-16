@@ -23,7 +23,7 @@ def update_borrower(self):
     borrowers = fetchProcedures.fetchBorrowers()
     borrowers = string_utils.build_input_options(self, borrowers)
     self.choice = input("Which borrower would you like to update?\n" + borrowers)
-    self.store["borrowerId"] = self.grab()
+    self.store["borrowerId"] = self.grabId()
 
     self.store["name"] = input("What is the new name of your borrower\n")
     self.store["address"] = input("What's the new address of your borrower\n")
@@ -35,6 +35,6 @@ def delete_borrower(self):
     borrowers = fetchProcedures.fetchBorrowers()
     borrowers = string_utils.build_input_options(self, borrowers)
     self.choice = input("Which borrower would you like to delete?\n" + borrowers)
-    self.store["borrowerId"] = self.grab()
+    self.store["borrowerId"] = self.grabId()
 
     # DELETE BORROWER BY ID (borrowerId)

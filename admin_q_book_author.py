@@ -70,7 +70,7 @@ def update_author(self):
     authors = fetchProcedures.fetchAuthors()
     authors = string_utils.build_input_options(self, authors)
     self.choice = input("Which author would you like to update?\n")
-    self.store["authorId"] = self.grab()
+    self.store["authorId"] = self.grabId()
 
     self.store["authorName"] = input("What would you like to change the author's name to?\n")
 
@@ -81,6 +81,6 @@ def delete_author(self):
     authors = fetchProcedures.fetchAuthors()
     authors = string_utils.build_input_options(self, authors)
     self.choice = input("Which author would you like to delete?\n")
-    self.store["authorId"] = self.grab()
+    self.store["authorId"] = self.grabId()
 
     # DELETE AUTHOR BY ID (authorId)
