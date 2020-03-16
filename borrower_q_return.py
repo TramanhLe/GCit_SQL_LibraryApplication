@@ -1,6 +1,11 @@
 import string_utils
+import fetchProcedures
+import updateProcedures
+
+
+# Selects book to return
 def question_one(self):
-    books = ["book1", "book2", "book2"]
-    books = string_utils.build_input_options(books)
-    self.choice = input("Which book would you like to return?\n")
+    books = fetchProcedures.fetchBooksByBorrowerId(self.store['cardNo'])
+    books = string_utils.build_input_options(self, books)
+    self.choice = input("Which book would you like to return?\n" + books)
     self.next()
