@@ -33,7 +33,7 @@ while True:
                         if bookName=='quit':
                             break
                         pubList=fetchProcedures.w_fetchPublishers()
-                        pubs = string_utils.build_input_options(pubList)
+                        pubs = string_utils.display_input_options(pubList)
                         pubChoice=input(pubs+"Which publisher do you want to add to the book? \n")
                         if pubChoice=='quit':
                             break
@@ -44,7 +44,7 @@ while True:
                         break
                     elif int(ans)==2:
                         bookList=fetchProcedures.w_fetchBooks()
-                        books = string_utils.build_input_options(bookList)
+                        books = string_utils.display_input_options(bookList)
                         bookChoice=input(books+"Which book do you want to update?\n")
                         if bookChoice=='quit':
                             break
@@ -54,7 +54,7 @@ while True:
                         if newBookName=='quit':
                             break
                         pubList=fetchProcedures.w_fetchPublishers()
-                        pubs = string_utils.build_input_options(pubList)
+                        pubs = string_utils.display_input_options(pubList)
                         pubChoice=input(pubs+"Which publisher do you want to add to the book? \n")
                         if pubChoice=='quit':
                             break
@@ -65,7 +65,7 @@ while True:
                         break
                     elif int(ans)==3:
                         bookList=fetchProcedures.w_fetchBooks()
-                        books = string_utils.build_input_options(bookList)
+                        books = string_utils.display_input_options(bookList)
                         bookChoice=input(books+"Which book do you want to delete?\n")
                         if bookChoice=='quit':
                             break
@@ -90,7 +90,7 @@ while True:
                         break
                     elif int(ans)==2:
                         authorList=fetchProcedures.w_fetchAuthors()
-                        authors = string_utils.build_input_options(authorList)
+                        authors = string_utils.display_input_options(authorList)
                         authorChoice=input(authors+"Which author do you want to update?\n")
                         if authorChoice=='quit':
                             break
@@ -105,7 +105,7 @@ while True:
                         break
                     elif int(ans)==3:
                         authorList=fetchProcedures.w_fetchAuthors()
-                        authors = string_utils.build_input_options(authorList)
+                        authors = string_utils.display_input_options(authorList)
                         authorChoice=input(authors+"Which author do you want to delete?\n")
                         if authorChoice=='quit':
                             break
@@ -140,7 +140,7 @@ while True:
                 break
             elif int(ans)==2:
                 pubList=fetchProcedures.w_fetchPublishers()
-                pubs = string_utils.build_input_options(pubList)
+                pubs = string_utils.display_input_options(pubList)
                 pubChoice=input(pubs+"Which publisher do you want to update? \n")
                 if pubChoice=='quit':
                     break
@@ -160,7 +160,7 @@ while True:
                 break
             elif int(ans)==3:
                 pubList=fetchProcedures.w_fetchPublishers()
-                pubs = string_utils.build_input_options(pubList)
+                pubs = string_utils.display_input_options(pubList)
                 pubChoice=input(pubs+"Which publisher do you want to delete? \n")
                 if pubChoice=='quit':
                     break
@@ -189,7 +189,7 @@ while True:
                 break
             elif int(ans)==2:
                 branchList=fetchProcedures.fetchBranchs()
-                branches = string_utils.build_input_options(branchList)
+                branches = string_utils.display_input_options(branchList)
                 branchChoice = input(branches + "Which branch do you want to update?\n")
                 if branchChoice=='quit':
                     break
@@ -208,7 +208,7 @@ while True:
                         break
             elif int(ans)==3:
                 branchList=fetchProcedures.fetchBranchs()
-                branches = string_utils.build_input_options(branchList)
+                branches = string_utils.display_input_options(branchList)
                 branchChoice = input(branches + "Which branch do you want to delete?\n")
                 if branchChoice=='quit':
                     break
@@ -234,7 +234,7 @@ while True:
                 break
             elif int(ans)==2:
                 borrowerList=fetchProcedures.fetchBorrowers()
-                borrowers = string_utils.build_input_options(borrowerList)
+                borrowers = string_utils.display_input_options(borrowerList)
                 borrowerChoice=input(borrowers+" Enter borrower card # you want to update?\n")
                 bNewName=input("Enter the borrowers new name.\n")
                 if bNewName=='quit':
@@ -250,7 +250,7 @@ while True:
                 break
             elif int(ans)==3:
                 borrowerList=fetchProcedures.fetchBorrowers()
-                borrowers = string_utils.build_input_options(borrowerList)
+                borrowers = string_utils.display_input_options(borrowerList)
                 borrowerChoice=input(borrowers+" Enter borrower card # you want to delete?\n")
                 deleteProcedures.deleteBorrower(borrowerChoice)
                 print("Deleting Borrower")
@@ -261,14 +261,14 @@ while True:
     elif int(ans)==5:
         while True:
             cardNumList=fetchProcedures.fetchBorrowers()
-            cardNums= string_utils.build_input_options(cardNumList)
+            cardNums= string_utils.display_input_options(cardNumList)
             cardNumChoice=input(cardNums+"Enter the borrower Card Number you want to update the due date for?\n")
             if cardNumChoice=='quit':
                 break
             else:
                 #Insert fetching all borrowed book from the card number
                 bookList=fetchProcedures.fetchBorrowerBooks(cardNumChoice)
-                books= string_utils.build_input_options(bookList)
+                books= string_utils.display_input_options(bookList)
                 bookChoice=input(books+"Which book do you want to update the due date for?\n")
                 if bookChoice=='quit':
                     break

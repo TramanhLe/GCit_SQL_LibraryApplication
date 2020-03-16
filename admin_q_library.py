@@ -18,7 +18,7 @@ def add_library(self):
     # PROCEDURE TO INSERT NEW BRANCH HERE (branchName, branchAddress)
 
 def update_library(self):
-    libraries = fetchProcedures.fetchLibraries()
+    libraries = fetchProcedures.fetchBranchs()
     libraries = string_utils.build_input_options(self, libraries)
     self.choice = input("Which library would you like to update?\n" + libraries)
     self.store["branchId"] = self.grab()

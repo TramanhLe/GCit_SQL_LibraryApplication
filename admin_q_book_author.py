@@ -26,13 +26,13 @@ def start(self):
 def add_book_author(self):
     self.store["title"] = input("What is the title of the book you want to add?\n")
 
-    authors = fetchProcedures.fetchAuthors()
-    authors = string_utils.build_input_options(self, authors)
+    authors = fetchProcedures.w_fetchAuthors()
+    authors = string_utils.display_input_options(authors)
     self.choice = input("Who authored this book?\n" + authors)
     self.store["author"] = self.grabId()
 
     publishers =  fetchProcedures.fetchPublishers()
-    publishers = string_utils.build_input_options(self, publishers)
+    publishers = string_utils.display_input_options(publishers)
     self.choice = input("And who published this book?\n" + publishers)
     self.store["publisherId"] = self.grabId()
 

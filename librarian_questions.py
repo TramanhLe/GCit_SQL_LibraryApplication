@@ -7,11 +7,6 @@ import questions
 def lib_question_one(self):
     #if self.choice == "1":
         res = (fetchProcedures.fetchBranchs())
-<<<<<<< HEAD
-        out = string_utils.build_input_options(self, res)
-        self.choice = input("Select Branch Number or q to quit to previous:\n" + out)
-        self.next()
-=======
         out = ""
         for i, val in enumerate(res):
             output = f"{i}) {val}\n"
@@ -21,7 +16,6 @@ def lib_question_one(self):
             self.home()
         else:
             self.next()
->>>>>>> 314b9c0c38998a160eb3d5c6435b171f1614bb27
 
 def lib_update_branch(self):
     int_choice = int(self.choice)
